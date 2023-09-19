@@ -21,7 +21,7 @@ import java.util.Properties;
 @Configuration
 @PropertySource("classpath:application.properties")
 @EnableTransactionManagement
-@ComponentScan(value = "org.example")
+@ComponentScan("org.example")
 @EnableJpaRepositories("org.example.repository")
 @EnableWebMvc
 public class AppConfig {
