@@ -33,16 +33,15 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public Optional<Author> findById(Long id) {
-        return authorRepository.findById(id);
+    public AuthorDto findById(Long id) {
+        Author author = authorRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("This author doesn't exist."));
+        return authorMapper.toDto(author);
     }
 
     @Override
     public AuthorDto create(AuthorCreateDto authorCreateDto) {
         Author author = authorMapper.toEntity(authorCreateDto);
-        authorRepository.saveAndFlush(author);
-
-        return authorMapper.toDto(author);
+        return authorMapper.toDto(authorRepository.saveAndFlush(author));
     }
 
     @Override

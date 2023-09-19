@@ -2,9 +2,8 @@ package org.example.repository;
 
 import org.example.model.Genre;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-
-public interface GenreRepository extends JpaRepository<Long, Genre> {
-    Optional<Genre> findById(Long id);
+@Repository
+public interface GenreRepository extends JpaRepository<Genre, Long> {
 }

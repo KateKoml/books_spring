@@ -23,6 +23,9 @@ import java.util.List;
 
         @GetMapping
         public ResponseEntity<List<AuthorDto>> findAll() {
-            return ResponseEntity.status(HttpStatus.OK).body(authorService.findAll());
+            List<AuthorDto> authorDtos = authorService.findAll();
+            return ResponseEntity.status(HttpStatus.OK).body(authorDtos);
         }
+
+
     }

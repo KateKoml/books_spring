@@ -3,6 +3,7 @@ package org.example.model;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,7 +29,7 @@ public class Author {
     @Column(name = "year_of_birth", nullable = false)
     private Integer yearOfBirth;
 
-    @OneToMany(mappedBy = "author", cascade = {CascadeType.MERGE, CascadeType.REFRESH})
+    @OneToMany(mappedBy = "author", cascade = {CascadeType.MERGE, CascadeType.REFRESH}, fetch = FetchType.LAZY)
     private Set<Book> books = new HashSet<>();
 
 

@@ -9,11 +9,6 @@ public class AuthorCreateDto {
 
     public AuthorCreateDto(){}
 
-    public AuthorCreateDto(String fullName, Integer yearOfBirth) {
-        this.fullName = fullName;
-        this.yearOfBirth = yearOfBirth;
-    }
-
     public String getFullName() {
         return fullName;
     }
