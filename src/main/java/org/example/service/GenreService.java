@@ -13,7 +13,7 @@ public interface GenreService {
 
     GenreDto create(GenreCreateDto genreCreateDto);
 
-    GenreDto update(GenreDto genreDto);
+    GenreDto update(Long id, GenreCreateDto genreDto);
 
     boolean delete(Long id);
 }

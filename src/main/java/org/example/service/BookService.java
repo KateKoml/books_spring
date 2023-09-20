@@ -12,7 +12,10 @@ public interface BookService {
 
     BookDto create(BookCreateDto bookCreateDto);
 
-    BookDto update(BookDto bookDto);
+    BookDto update(Long id, BookCreateDto bookDto);
 
     boolean delete(Long id);
+
+    void setBookGenre(Long bookId, Long genreId);
+    List<BookDto> findByGenreId(Long id);
 }

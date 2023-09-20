@@ -8,6 +8,7 @@ import org.example.repository.AuthorRepository;
 import org.example.service.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.List;
@@ -38,20 +39,23 @@ public class AuthorServiceImpl implements AuthorService {
         return authorMapper.toDto(author);
     }
 
+    @Transactional
     @Override
     public AuthorDto create(AuthorCreateDto authorCreateDto) {
         Author author = authorMapper.toEntity(authorCreateDto);
         return authorMapper.toDto(authorRepository.saveAndFlush(author));
     }
 
+    @Transactional
     @Override
-    public AuthorDto update(AuthorDto authorDto) {
-        Author author = authorMapper.toEntity(authorDto);
+    public AuthorDto update(Long id, AuthorCreateDto authorDto) {
+        Author author = authorRepository.findById(id).orElseThrow(() -> new EntityNotFoundException("This author doesn't exist."));
         Author updatedAuthor = authorMapper.partialUpdateToEntity(authorDto, author);
 
         return authorMapper.toDto(authorRepository.saveAndFlush(updatedAuthor));
     }
 
+    @Transactional
     @Override
     public boolean delete(Long id) {
         Optional<Author> author = authorRepository.findById(id);

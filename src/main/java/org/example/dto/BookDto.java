@@ -2,19 +2,18 @@ package org.example.dto;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
-import org.example.model.Author;
 
 public class BookDto {
     private Long id;
     private String name;
     private Integer year;
-    private Author author;
+    private Long authorId;
 
-    public BookDto(Long id, String name, Integer year, Author author) {
+    public BookDto(Long id, String name, Integer year, Long authorId) {
         this.id = id;
         this.name = name;
         this.year = year;
-        this.author = author;
+        this.authorId = authorId;
     }
 
     public BookDto() {
@@ -44,12 +43,12 @@ public class BookDto {
         this.year = year;
     }
 
-    public Author getAuthor() {
-        return author;
+    public Long getAuthorId() {
+        return authorId;
     }
 
-    public void setAuthor(Author author) {
-        this.author = author;
+    public void setAuthorId(Long authorId) {
+        this.authorId = authorId;
     }
 
     @Override

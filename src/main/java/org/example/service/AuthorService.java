@@ -12,7 +12,7 @@ public interface AuthorService {
 
     AuthorDto create(AuthorCreateDto authorCreateDto);
 
-    AuthorDto update(AuthorDto authorDto);
+    AuthorDto update(Long id, AuthorCreateDto authorDto);
 
     boolean delete(Long id);
 }

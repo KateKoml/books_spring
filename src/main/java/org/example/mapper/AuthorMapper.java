@@ -25,7 +25,7 @@ public interface AuthorMapper {
     Author toEntity(AuthorDto authorDto);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    Author partialUpdateToEntity(AuthorDto authorDto, @MappingTarget Author author);
+    Author partialUpdateToEntity(AuthorCreateDto authorDto, @MappingTarget Author author);
 
     AuthorDto toDto(Author author);
 }

@@ -23,7 +23,7 @@ public interface GenreMapper {
     Genre toEntity(GenreDto genreDto);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
-    Genre partialUpdateToEntity(GenreDto genreDto, @MappingTarget Genre genre);
+    Genre partialUpdateToEntity(GenreCreateDto genreDto, @MappingTarget Genre genre);
 
     GenreDto toDto(Genre genre);
 }

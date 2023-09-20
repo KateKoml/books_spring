@@ -29,7 +29,7 @@ public class Author {
     @Column(name = "year_of_birth", nullable = false)
     private Integer yearOfBirth;
 
-    @OneToMany(mappedBy = "author", cascade = {CascadeType.MERGE, CascadeType.REFRESH}, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "author", cascade = {CascadeType.REMOVE})
     private Set<Book> books = new HashSet<>();
 
 

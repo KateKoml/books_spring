@@ -7,7 +7,8 @@ public class AuthorCreateDto {
     private String fullName;
     private Integer yearOfBirth;
 
-    public AuthorCreateDto(){}
+    public AuthorCreateDto() {
+    }
 
     public String getFullName() {
         return fullName;
