@@ -3,6 +3,8 @@ package org.example.dto;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
+import java.util.Objects;
+
 public class AuthorDto {
     private Long id;
     private String fullName;
@@ -44,20 +46,16 @@ public class AuthorDto {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof AuthorDto authorDto)) return false;
-
-        if (getId() != null ? !getId().equals(authorDto.getId()) : authorDto.getId() != null) return false;
-        if (getFullName() != null ? !getFullName().equals(authorDto.getFullName()) : authorDto.getFullName() != null)
-            return false;
-        return getYearOfBirth() != null ? !getYearOfBirth().equals(authorDto.getYearOfBirth()) : authorDto.getYearOfBirth() != null;
+        if (o == null || getClass() != o.getClass()) return false;
+        AuthorDto authorDto = (AuthorDto) o;
+        return Objects.equals(yearOfBirth, authorDto.yearOfBirth) &&
+                Objects.equals(id, authorDto.id) &&
+                Objects.equals(fullName, authorDto.fullName);
     }
 
     @Override
     public int hashCode() {
-        int result = getId() != null ? getId().hashCode() : 0;
-        result = 31 * result + (getFullName() != null ? getFullName().hashCode() : 0);
-        result = 31 * result + (getYearOfBirth() != null ? getYearOfBirth().hashCode() : 0);
-        return result;
+        return Objects.hash(id, fullName, yearOfBirth);
     }
 
     @Override
