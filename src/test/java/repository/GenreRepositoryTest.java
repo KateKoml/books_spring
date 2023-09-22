@@ -1,7 +1,5 @@
 package repository;
 
-import org.example.model.Author;
-import org.example.model.Book;
 import org.example.model.Genre;
 import org.example.repository.GenreRepository;
 import org.junit.jupiter.api.Test;
