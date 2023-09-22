@@ -75,7 +75,7 @@ class BookServiceTest {
     }
 
     @Test
-    void testFindByIdAuthor() {
+    void testFindByIdBook() {
         Long bookId = 1L;
         Author author = new Author(1L, "John Doe", 1856);
         Book mockBook = new Book(bookId, "Hello world", 1888, author);
@@ -94,7 +94,7 @@ class BookServiceTest {
     }
 
     @Test
-    void testCreateAuthor() {
+    void testCreateBook() {
         Author author = new Author(1L, "John Doe", 1856);
         BookCreateDto bookCreateDto = new BookCreateDto();
         bookCreateDto.setName("Hello world");
@@ -140,7 +140,7 @@ class BookServiceTest {
     }
 
     @Test
-    void testDeleteAuthor() {
+    void testDeleteBook() {
         Long bookId = 1L;
         Author author = new Author(1L, "John Doe", 1856);
 
@@ -155,7 +155,7 @@ class BookServiceTest {
     }
 
     @Test
-    void testDeleteNonExistingAuthor() {
+    void testDeleteNonExistingBook() {
         Long bookId = 1L;
 
         when(bookRepository.findById(bookId)).thenReturn(Optional.empty());
